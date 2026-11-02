@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SolarClean Jaipur - Professional Rooftop Solar Panel Cleaning</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                        },
+                        solar: {
+                            500: '#eab308',
+                            600: '#ca8a04',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 font-sans text-slate-800 antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div class="bg-gradient-to-r from-amber-500 to-amber-600 text-white text-xs sm:text-sm font-medium py-2 px-4 text-center flex items-center justify-center gap-2 shadow-sm">
+        <i data-lucide="sun" class="w-4 h-4 animate-spin-slow"></i>
+        <span>Special Jaipur Offer: Free RO Pure Water Demineralization Coat on all AMC bookings!</span>
+        <span class="hidden md:inline bg-white/25 px-2 py-0.5 rounded text-xs">Use code: JAIPURSOAR</span>
+    </div>
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-100 shadow-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
+            <!-- Logo -->
+            <div class="flex items-center gap-3 cursor-pointer" onclick="scrollToSection('hero')">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-emerald-400 flex items-center justify-center text-white shadow-md shadow-brand-500/20">
+                    <i data-lucide="sun" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <h1 class="font-bold text-lg text-slate-900 leading-tight tracking-tight flex items-center gap-1.5">
+                        SolarClean <span class="text-brand-600">Jaipur</span>
+                    </h1>
+                    <p class="text-xs text-slate-500 font-medium">Professional Rooftop Care</p>
+                </div>
+            </div>
+
+            <!-- Location Selector Pill (Jaipur Only) -->
+            <div class="hidden md:flex items-center gap-2 bg-slate-100/80 border border-slate-200/60 px-3.5 py-1.5 rounded-full text-xs font-medium text-slate-700">
+                <i data-lucide="map-pin" class="w-3.5 h-3.5 text-brand-600"></i>
+                <span>Jaipur, Rajasthan (Serving all local areas)</span>
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            </div>
+
+            <!-- Right Nav Actions -->
+            <div class="flex items-center gap-3">
+                <button onclick="openCheckPinModal()" class="hidden sm:inline-flex items-center gap-1.5 text-xs font-semibold text-slate-700 hover:text-brand-600 bg-slate-100 hover:bg-slate-200/70 px-3.5 py-2 rounded-xl transition">
+                    <i data-lucide="search" class="w-3.5 h-3.5"></i>
+                    Check Pincode
+                </button>
+                <button onclick="openAuthModal()" id="authNavBtn" class="flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white font-semibold text-xs sm:text-sm px-4 py-2.5 rounded-xl shadow-md shadow-brand-600/20 transition active:scale-95">
+                    <i data-lucide="user" class="w-4 h-4"></i>
+                    <span id="authNavText">Login / Signup</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="relative overflow-hidden pt-8 pb-16 lg:pt-16 lg:pb-24 bg-gradient-to-b from-brand-50/60 via-white to-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Text Content -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 bg-brand-100/80 border border-brand-200 text-brand-700 px-3.5 py-1.5 rounded-full text-xs font-semibold">
+                        <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+                        Jaipur's #1 Verified Solar Panel Cleaning Experts
+                    </div>
+                    
+                    <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-[1.15]">
+                        Restore Up To <span class="text-brand-600 underline decoration-solar-500 decoration-wavy">25% Power</span> With Expert Panel Washing
+                    </h2>
+                    
+                    <p class="text-base sm:text-lg text-slate-600 max-w-xl mx-auto lg:mx-0 font-normal">
+                        Rajasthan dust and bird droppings cut solar generation heavily. We use purified <strong>RO demineralized water</strong> and soft brush scrubbers right at your rooftop in Jaipur.
+                    </p>
+
+                    <!-- Quick Pincode Search Bar -->
+                    <div class="bg-white p-2 rounded-2xl shadow-xl shadow-slate-200/60 border border-slate-200 max-w-lg mx-auto lg:mx-0 flex flex-col sm:flex-row gap-2">
+                        <div class="flex items-center gap-2.5 px-3 py-2 flex-1 bg-slate-50 rounded-xl border border-slate-200">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-brand-600 shrink-0"></i>
+                            <input type="text" id="heroPincode" placeholder="Enter Jaipur Pincode (e.g. 302021)" maxlength="6" class="bg-transparent text-sm focus:outline-none w-full text-slate-800 placeholder-slate-400 font-medium">
+                        </div>
+                        <button onclick="checkPincodeInline()" class="bg-slate-900 hover:bg-slate-800 text-white font-semibold px-6 py-3 rounded-xl text-sm transition shadow-md">
+                            Check Availability
+                        </button>
+                    </div>
+                    <div id="pincodeResult" class="text-xs font-medium min-h-[20px]"></div>
+
+                    <!-- Trust Badges -->
+                    <div class="pt-4 grid grid-cols-3 gap-4 border-t border-slate-200/80 max-w-md mx-auto lg:mx-0">
+                        <div>
+                            <p class="text-xl font-bold text-slate-900">4.9 ★</p>
+                            <p class="text-xs text-slate-500">1,400+ Jaipur Roofs Cleaned</p>
+                        </div>
+                        <div>
+                            <p class="text-xl font-bold text-slate-900">100%</p>
+                            <p class="text-xs text-slate-500">Scratch-Free Guarantee</p>
+                        </div>
+                        <div>
+                            <p class="text-xl font-bold text-slate-900">₹0</p>
+                            <p class="text-xs text-slate-500">Advance Payment Needed</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Interactive Calculator Card -->
+                <div class="lg:col-span-5">
+                    <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-2xl shadow-slate-300/50 border border-slate-100 relative">
+                        <div class="absolute -top-3 right-6 bg-amber-500 text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-xs">
+                            Jaipur ROI Calculator
+                        </div>
+
+                        <h3 class="text-lg font-bold text-slate-900 mb-1 flex items-center gap-2">
+                            <i data-lucide="calculator" class="w-5 h-5 text-brand-600"></i>
+                            Calculate Your Generation Loss
+                        </h3>
+                        <p class="text-xs text-slate-500 mb-6">See how much dirty panels cost you in JVVNL electricity bills.</p>
+
+                        <!-- Slider 1: Panel Capacity -->
+                        <div class="space-y-2 mb-6">
+                            <div class="flex justify-between text-sm font-semibold">
+                                <span class="text-slate-700">Solar Plant Capacity:</span>
+                                <span id="kwDisplay" class="text-brand-600 font-bold">5 kW</span>
+                            </div>
+                            <input type="range" id="kwSlider" min="1" max="25" value="5" step="1" oninput="updateCalculator()" class="w-full accent-brand-600 cursor-pointer">
+                            <div class="flex justify-between text-[11px] text-slate-400 font-medium">
+                                <span>1 kW (Home)</span>
+                                <span>10 kW</span>
+                                <span>25 kW+ (Commercial)</span>
+                            </div>
+                        </div>
+
+                        <!-- Results Box -->
+                        <div class="bg-gradient-to-br from-brand-50 to-emerald-50/50 rounded-2xl p-4 border border-brand-200/60 space-y-3 mb-6">
+                            <div class="flex justify-between items-center text-sm">
+                                <span class="text-slate-600">Monthly Lost Units:</span>
+                                <span id="lostUnits" class="font-bold text-slate-900">~ 75 kWh</span>
+                            </div>
+                            <div class="flex justify-between items-center text-sm">
+                                <span class="text-slate-600">Estimated Monthly Loss:</span>
+                                <span id="lostMoney" class="font-bold text-red-600">₹ 562 / mo</span>
+                            </div>
+                            <div class="pt-2 border-t border-brand-200 flex justify-between items-center">
+                                <span class="text-xs font-semibold text-brand-700 uppercase">Cleaning Cost:</span>
+                                <span id="cleaningCost" class="font-extrabold text-brand-700 text-base">₹ 599 only</span>
+                            </div>
+                        </div>
+
+                        <button onclick="scrollToSection('services')" class="w-full bg-slate-900 hover:bg-brand-600 text-white font-semibold py-3.5 rounded-xl transition duration-200 text-sm shadow-md flex items-center justify-center gap-2 group">
+                            <span>Book Cleaning Now</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES CATALOG (Urban Company Style) -->
+    <section id="services" class="py-16 bg-white border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <span class="text-brand-600 font-bold text-xs uppercase tracking-wider bg-brand-50 px-3 py-1 rounded-full border border-brand-200">Transparent Pricing</span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-2">Jaipur Solar Cleaning Packages</h2>
+                    <p class="text-sm text-slate-500 mt-1">Select the best service for your residential or commercial rooftop setup.</p>
+                </div>
+                <div class="mt-4 md:mt-0 flex items-center gap-2 bg-amber-50 text-amber-800 text-xs font-semibold px-3 py-2 rounded-xl border border-amber-200">
+                    <i data-lucide="info" class="w-4 h-4 text-amber-600"></i>
+                    <span>Includes technician visit across all Jaipur pin codes</span>
+                </div>
+            </div>
+
+            <!-- Service Grid -->
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <!-- Package 1 -->
+                <div class="bg-slate-50 rounded-3xl p-6 border border-slate-200/80 hover:border-brand-500 transition-all hover:shadow-xl flex flex-col justify-between relative group">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="bg-slate-200 text-slate-700 font-semibold text-xs px-2.5 py-1 rounded-lg">Standard Wash</span>
+                            <span class="text-xs font-bold text-brand-600 bg-brand-100 px-2.5 py-1 rounded-full">Most Popular</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Basic Rooftop Panel Wash</h3>
+                        <p class="text-xs text-slate-500 mb-6">Ideal for standard dust buildup on residential rooftops in Jaipur.</p>
+                        
+                        <ul class="space-y-3 text-xs text-slate-600 mb-8">
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-600"></i> Soft-brush mechanized scrubbing</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-600"></i> RO purified water rinsing</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-600"></i> Up to 15 solar panels included</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-600"></i> Visual inspection report</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <div class="flex items-baseline gap-1 mb-4">
+                            <span class="text-2xl font-extrabold text-slate-900">₹499</span>
+                            <span class="text-xs text-slate-400">/ service</span>
+                        </div>
+                        <button onclick="openBookingModal('Basic Rooftop Wash', 499)" class="w-full bg-white hover:bg-brand-600 text-slate-900 hover:text-white font-semibold py-3 rounded-xl border border-slate-300 hover:border-brand-600 transition text-sm shadow-xs">
+                            Book Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Package 2 (Highlighted) -->
+                <div class="bg-slate-900 text-white rounded-3xl p-6 border-2 border-brand-500 shadow-xl flex flex-col justify-between relative">
+                    <div class="absolute -top-3 right-6 bg-brand-500 text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-sm">
+                        Best Value
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="bg-slate-800 text-brand-400 font-semibold text-xs px-2.5 py-1 rounded-lg">Deep Clean + Coat</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Jaipur Dust-Shield Nano Clean</h3>
+                        <p class="text-xs text-slate-400 mb-6">Special anti-static coating prevents rapid dust accumulation in arid climate.</p>
+                        
+                        <ul class="space-y-3 text-xs text-slate-300 mb-8">
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-400"></i> Everything in Basic Wash</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-400"></i> Hard-water stain & bird dropping removal</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-400"></i> Hydrophobic anti-dust nano coating</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-400"></i> Up to 25 panels covered</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <div class="flex items-baseline gap-1 mb-4">
+                            <span class="text-2xl font-extrabold text-white">₹999</span>
+                            <span class="text-xs text-slate-400">/ service</span>
+                        </div>
+                        <button onclick="openBookingModal('Jaipur Dust-Shield Nano Clean', 999)" class="w-full bg-brand-600 hover:bg-brand-500 text-white font-semibold py-3 rounded-xl transition text-sm shadow-md">
+                            Book Nano Clean
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Package 3 -->
+                <div class="bg-slate-50 rounded-3xl p-6 border border-slate-200/80 hover:border-brand-500 transition-all hover:shadow-xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="bg-amber-100 text-amber-800 font-semibold text-xs px-2.5 py-1 rounded-lg">Annual AMC</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Quarterly Care Pass (AMC)</h3>
+                        <p class="text-xs text-slate-500 mb-6">4 scheduled cleanings per year to keep your panels at peak generation.</p>
+                        
+                        <ul class="space-y-3 text-xs text-slate-600 mb-8">
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-600"></i> 4 scheduled cleanings in a year</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-600"></i> Priority booking & slot allocation</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-600"></i> Electrical inverter terminal check</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-600"></i> Dedicated Jaipur support manager</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <div class="flex items-baseline gap-1 mb-4">
+                            <span class="text-2xl font-extrabold text-slate-900">₹2,499</span>
+                            <span class="text-xs text-slate-400">/ year</span>
+                        </div>
+                        <button onclick="openBookingModal('Quarterly Care Pass (AMC)', 2499)" class="w-full bg-white hover:bg-brand-600 text-slate-900 hover:text-white font-semibold py-3 rounded-xl border border-slate-300 hover:border-brand-600 transition text-sm shadow-xs">
+                            Get AMC Pass
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCAL JAIPUR COVERAGE MAP / AREA BADGES -->
+    <section class="py-14 bg-slate-50 border-t border-slate-200/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h3 class="text-xs font-bold uppercase tracking-widest text-brand-600 mb-2">Coverage Hub</h3>
+            <h2 class="text-2xl font-bold text-slate-900 mb-4">Active Service Hubs Across Jaipur</h2>
+            <p class="text-xs sm:text-sm text-slate-500 max-w-2xl mx-auto mb-8">Our expert service vans are stationed across major localities in Jaipur for prompt same-day or next-day booking fulfillment.</p>
+
+            <div class="flex flex-wrap justify-center gap-2 sm:gap-3 max-w-4xl mx-auto">
+                <span class="bg-white px-4 py-2 rounded-xl text-xs font-medium text-slate-700 border border-slate-200 shadow-xs flex items-center gap-1.5"><i data-lucide="map-pin" class="w-3.5 h-3.5 text-brand-600"></i> Vaishali Nagar (302021)</span>
+                <span class="bg-white px-4 py-2 rounded-xl text-xs font-medium text-slate-700 border border-slate-200 shadow-xs flex items-center gap-1.5"><i data-lucide="map-pin" class="w-3.5 h-3.5 text-brand-600"></i> Mansarovar (302020)</span>
+                <span class="bg-white px-4 py-2 rounded-xl text-xs font-medium text-slate-700 border border-slate-200 shadow-xs flex items-center gap-1.5"><i data-lucide="map-pin" class="w-3.5 h-3.5 text-brand-600"></i> Malviya Nagar (302017)</span>
+                <span class="bg-white px-4 py-2 rounded-xl text-xs font-medium text-slate-700 border border-slate-200 shadow-xs flex items-center gap-1.5"><i data-lucide="map-pin" class="w-3.5 h-3.5 text-brand-600"></i> C-Scheme (302001)</span>
+                <span class="bg-white px-4 py-2 rounded-xl text-xs font-medium text-slate-700 border border-slate-200 shadow-xs flex items-center gap-1.5"><i data-lucide="map-pin" class="w-3.5 h-3.5 text-brand-600"></i> Jagatpura (302017)</span>
+                <span class="bg-white px-4 py-2 rounded-xl text-xs font-medium text-slate-700 border border-slate-200 shadow-xs flex items-center gap-1.5"><i data-lucide="map-pin" class="w-3.5 h-3.5 text-brand-600"></i> Raja Park (302004)</span>
+                <span class="bg-white px-4 py-2 rounded-xl text-xs font-medium text-slate-700 border border-slate-200 shadow-xs flex items-center gap-1.5"><i data-lucide="map-pin" class="w-3.5 h-3.5 text-brand-600"></i> Tonk Road (302015)</span>
+                <span class="bg-white px-4 py-2 rounded-xl text-xs font-medium text-slate-700 border border-slate-200 shadow-xs flex items-center gap-1.5"><i data-lucide="map-pin" class="w-3.5 h-3.5 text-brand-600"></i> Ajmer Road (302026)</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            <div class="space-y-3">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-lg bg-brand-600 flex items-center justify-center text-white">
+                        <i data-lucide="sun" class="w-5 h-5"></i>
+                    </div>
+                    <span class="font-bold text-white text-lg">SolarClean Jaipur</span>
+                </div>
+                <p class="text-xs">Professional rooftop solar panel washing and maintenance service built exclusively for Jaipur households and businesses.</p>
+            </div>
+            <div>
+                <h4 class="text-white text-sm font-semibold mb-3">Quick Links</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="#services" class="hover:text-white transition">Pricing Packages</a></li>
+                    <li><a href="#" onclick="openCheckPinModal(); return false;" class="hover:text-white transition">Check Pincode</a></li>
+                    <li><a href="#" onclick="openAuthModal(); return false;" class="hover:text-white transition">Customer Login</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white text-sm font-semibold mb-3">Jaipur Support Hub</h4>
+                <p class="text-xs mb-1">Operating Hours: 7:00 AM – 7:00 PM</p>
+                <p class="text-xs mb-1">Helpline: +91 (141) 400-SOLAR</p>
+                <p class="text-xs">Email: support@solarcleanjaipur.in</p>
+            </div>
+            <div>
+                <h4 class="text-white text-sm font-semibold mb-3">Payment & Trust</h4>
+                <p class="text-xs mb-2">Pay securely online or cash after service completion. Verified Jaipur technicians with background check.</p>
+                <div class="flex gap-2 text-xs font-bold text-slate-300">
+                    <span class="bg-slate-800 px-2 py-1 rounded">UPI</span>
+                    <span class="bg-slate-800 px-2 py-1 rounded">Paytm</span>
+                    <span class="bg-slate-800 px-2 py-1 rounded">GPay</span>
+                    <span class="bg-slate-800 px-2 py-1 rounded">Cash</span>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 border-t border-slate-800 text-center text-xs text-slate-500">
+            © 2026 SolarClean Jaipur Services. Proudly serving the Pink City.
+        </div>
+    </footer>
+
+
+    <!-- ================= MODALS ================= -->
+
+    <!-- 1. AUTH / SIGNUP MODAL (Urban Company Style) -->
+    <div id="authModal" class="fixed inset-0 z-50 bg-slate-950/60 backdrop-blur-xs hidden items-center justify-center p-4">
+        <div class="bg-white w-full max-w-md rounded-3xl p-6 sm:p-8 shadow-2xl relative animate-in fade-in zoom-in-95 duration-200">
+            <button onclick="closeAuthModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700 bg-slate-100 p-2 rounded-full transition">
+                <i data-lucide="x" class="w-4 h-4"></i>
+            </button>
+
+            <div id="authStep1">
+                <div class="text-center mb-6">
+                    <div class="w-12 h-12 rounded-2xl bg-brand-100 text-brand-600 flex items-center justify-center mx-auto mb-3">
+                        <i data-lucide="phone" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900">Login or Signup</h3>
+                    <p class="text-xs text-slate-500 mt-1">Enter your phone number to access your Jaipur bookings</p>
+                </div>
+
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1.5">Mobile Number</label>
+                        <div class="flex items-center border border-slate-300 rounded-xl overflow-hidden focus-within:border-brand-600 focus-within:ring-2 focus-within:ring-brand-500/20">
+                            <span class="bg-slate-100 px-3 py-3 text-xs font-bold text-slate-700 border-r border-slate-300">+91</span>
+                            <input type="tel" id="authPhone" placeholder="98290XXXXX" maxlength="10" class="w-full px-3 py-3 text-sm focus:outline-none font-medium">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1.5">Full Name</label>
+                        <input type="text" id="authName" placeholder="Vishesh Sharma" class="w-full px-3 py-3 text-sm border border-slate-300 rounded-xl focus:outline-none focus:border-brand-600 focus:ring-2 focus:ring-brand-500/20">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1.5">Email Address</label>
+                        <input type="email" id="authEmail" placeholder="vishesh@example.com" class="w-full px-3 py-3 text-sm border border-slate-300 rounded-xl focus:outline-none focus:border-brand-600 focus:ring-2 focus:ring-brand-500/20">
+                    </div>
+
+                    <button onclick="sendOtp()" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-semibold py-3.5 rounded-xl transition shadow-md text-sm mt-2">
+                        Continue with OTP
+                    </button>
+                </div>
+            </div>
+
+            <!-- OTP Verification Step -->
+            <div id="authStep2" class="hidden">
+                <div class="text-center mb-6">
+                    <div class="w-12 h-12 rounded-2xl bg-brand-100 text-brand-600 flex items-center justify-center mx-auto mb-3">
+                        <i data-lucide="shield-check" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900">Verify Mobile Number</h3>
+                    <p class="text-xs text-slate-500 mt-1">Enter the 4-digit OTP sent to <span id="displayPhoneNo" class="font-bold text-slate-800"></span></p>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="flex justify-center gap-3 my-4">
+                        <input type="text" maxlength="1" class="otp-input w-12 h-12 text-center text-xl font-bold border border-slate-300 rounded-xl focus:border-brand-600 focus:ring-2 focus:ring-brand-500/20 focus:outline-none" />
+                        <input type="text" maxlength="1" class="otp-input w-12 h-12 text-center text-xl font-bold border border-slate-300 rounded-xl focus:border-brand-600 focus:ring-2 focus:ring-brand-500/20 focus:outline-none" />
+                        <input type="text" maxlength="1" class="otp-input w-12 h-12 text-center text-xl font-bold border border-slate-300 rounded-xl focus:border-brand-600 focus:ring-2 focus:ring-brand-500/20 focus:outline-none" />
+                        <input type="text" maxlength="1" class="otp-input w-12 h-12 text-center text-xl font-bold border border-slate-300 rounded-xl focus:border-brand-600 focus:ring-2 focus:ring-brand-500/20 focus:outline-none" />
+                    </div>
+
+                    <button onclick="verifyOtp()" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-semibold py-3.5 rounded-xl transition shadow-md text-sm">
+                        Verify & Sign In
+                    </button>
+                    <div class="text-center pt-2">
+                        <button onclick="resetAuth()" class="text-xs text-brand-600 font-semibold hover:underline">Change Mobile Number</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- 2. BOOKING MODAL -->
+    <div id="bookingModal" class="fixed inset-0 z-50 bg-slate-950/60 backdrop-blur-xs hidden items-center justify-center p-4">
+        <div class="bg-white w-full max-w-lg rounded-3xl p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeBookingModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700 bg-slate-100 p-2 rounded-full transition">
+                <i data-lucide="x" class="w-4 h-4"></i>
+            </button>
+
+            <div class="mb-6">
+                <span class="text-xs font-bold text-brand-600 bg-brand-50 px-2.5 py-1 rounded-md">Jaipur Service Checkout</span>
+                <h3 id="bookingTitle" class="text-xl font-bold text-slate-900 mt-2">Book Service</h3>
+                <p id="bookingPrice" class="text-sm font-extrabold text-brand-600 mt-0.5">₹0</p>
+            </div>
+
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Your Name</label>
+                    <input type="text" id="bookName" placeholder="Vishesh Sharma" class="w-full px-3 py-2.5 text-sm border border-slate-300 rounded-xl focus:outline-none focus:border-brand-600">
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">Phone Number</label>
+                        <input type="tel" id="bookPhone" placeholder="98290XXXXX" maxlength="10" class="w-full px-3 py-2.5 text-sm border border-slate-300 rounded-xl focus:outline-none focus:border-brand-600">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">Jaipur Pincode</label>
+                        <input type="text" id="bookPincode" placeholder="302021" maxlength="6" class="w-full px-3 py-2.5 text-sm border border-slate-300 rounded-xl focus:outline-none focus:border-brand-600">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Jaipur Locality / Address</label>
+                    <textarea id="bookAddress" rows="2" placeholder="House No., Street name, Landmark in Vaishali Nagar, Jaipur" class="w-full px-3 py-2.5 text-sm border border-slate-300 rounded-xl focus:outline-none focus:border-brand-600"></textarea>
+                </div>
+
+                <!-- Simulated Map Box -->
+                <div class="bg-slate-100 rounded-2xl p-3 border border-slate-200 relative overflow-hidden">
+                    <div class="flex items-center justify-between text-xs font-semibold text-slate-700 mb-2">
+                        <span class="flex items-center gap-1.5"><i data-lucide="map-pin" class="w-3.5 h-3.5 text-red-500"></i> Jaipur Rooftop Pin</span>
+                        <span class="text-[10px] text-brand-600 bg-brand-100 px-2 py-0.5 rounded">GPS Auto-Detected</span>
+                    </div>
+                    <!-- Embedded Map Frame representing Jaipur area -->
+                    <div class="w-full h-28 rounded-xl overflow-hidden border border-slate-300 relative">
+                        <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=Jaipur,Rajasthan&t=&z=13&ie=UTF8&iwloc=&output=embed" class="filter grayscale-20 opacity-90"></iframe>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">Preferred Date</label>
+                        <input type="date" id="bookDate" class="w-full px-3 py-2.5 text-sm border border-slate-300 rounded-xl focus:outline-none focus:border-brand-600">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">Time Slot</label>
+                        <select id="bookTime" class="w-full px-3 py-2.5 text-sm border border-slate-300 rounded-xl focus:outline-none focus:border-brand-600 bg-white">
+                            <option>08:00 AM - 10:00 AM</option>
+                            <option>10:00 AM - 12:00 PM</option>
+                            <option>02:00 PM - 04:00 PM</option>
+                            <option>04:00 PM - 06:00 PM</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button onclick="confirmBooking()" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-semibold py-3.5 rounded-xl transition shadow-md text-sm mt-2">
+                    Confirm Jaipur Booking (Pay after service)
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 3. CHECK PINCODE MODAL -->
+    <div id="pincodeModal" class="fixed inset-0 z-50 bg-slate-950/60 backdrop-blur-xs hidden items-center justify-center p-4">
+        <div class="bg-white w-full max-w-sm rounded-3xl p-6 shadow-2xl relative text-center">
+            <button onclick="closeCheckPinModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 bg-slate-100 p-2 rounded-full transition">
+                <i data-lucide="x" class="w-4 h-4"></i>
+            </button>
+            
+            <div class="w-12 h-12 rounded-2xl bg-brand-100 text-brand-600 flex items-center justify-center mx-auto mb-3">
+                <i data-lucide="map-pin" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-1">Check Jaipur Serviceability</h3>
+            <p class="text-xs text-slate-500 mb-4">Enter your 6-digit Jaipur pincode</p>
+
+            <div class="space-y-3">
+                <input type="text" id="modalPincodeInput" placeholder="e.g. 302021" maxlength="6" class="w-full px-4 py-3 text-center text-lg font-bold tracking-widest border border-slate-300 rounded-xl focus:outline-none focus:border-brand-600">
+                <button onclick="verifyModalPincode()" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-semibold py-3 rounded-xl transition text-sm">
+                    Check Pincode
+                </button>
+                <div id="modalPincodeResult" class="text-xs font-semibold pt-1"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Valid Jaipur Pincode prefixes or list
+        const validJaipurPincodes = ["302001", "302002", "302003", "302004", "302005", "302006", "302012", "302015", "302017", "302018", "302019", "302020", "302021", "302026", "302039"];
+
+        // Calculator Logic
+        function updateCalculator() {
+            const kw = document.getElementById('kwSlider').value;
+            document.getElementById('kwDisplay').innerText = kw + ' kW';
+            
+            // Formula: ~15 kWh per kW per month lost due to dust in arid Rajasthan sun
+            const unitsLost = kw * 15;
+            // JVVNL tariff avg ~₹7.5 per unit
+            const moneyLost = Math.round(unitsLost * 7.5);
+            // Cleaning cost starts at ₹499 for small up to ₹1499 for larger plants
+            const cleanCost = kw <= 3 ? 499 : (kw <= 8 ? 699 : 1199);
+
+            document.getElementById('lostUnits').innerText = '~ ' + unitsLost + ' kWh';
+            document.getElementById('lostMoney').innerText = '₹ ' + moneyLost + ' / mo';
+            document.getElementById('cleaningCost').innerText = '₹ ' + cleanCost + ' only';
+        }
+        updateCalculator();
+
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Inline Pincode Check
+        function checkPincodeInline() {
+            const val = document.getElementById('heroPincode').value.trim();
+            const res = document.getElementById('pincodeResult');
+            if(val.length !== 6) {
+                res.innerHTML = '<span class="text-red-500">Please enter a valid 6-digit Jaipur pincode.</span>';
+                return;
+            }
+            if(validJaipurPincodes.includes(val) || val.startsWith('302')) {
+                res.innerHTML = '<span class="text-emerald-600 font-semibold flex items-center gap-1 mt-1"><svg class="w-4 h-4 inline" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg> Service available in your Jaipur area! Slot available tomorrow.</span>';
+            } else {
+                res.innerHTML = '<span class="text-amber-600 font-semibold mt-1">Limited service in this specific outskirts pin. Call helpline for special scheduling.</span>';
+            }
+        }
+
+        // Modal Controls
+        function openAuthModal() {
+            document.getElementById('authModal').classList.remove('hidden');
+            document.getElementById('authModal').classList.add('flex');
+        }
+        function closeAuthModal() {
+            document.getElementById('authModal').classList.remove('flex');
+            document.getElementById('authModal').classList.add('hidden');
+        }
+
+        function sendOtp() {
+            const phone = document.getElementById('authPhone').value.trim();
+            if(phone.length !== 10) {
+                alert('Please enter a valid 10-digit mobile number.');
+                return;
+            }
+            document.getElementById('displayPhoneNo').innerText = '+91 ' + phone;
+            document.getElementById('authStep1').classList.add('hidden');
+            document.getElementById('authStep2').classList.remove('hidden');
+        }
+
+        function resetAuth() {
+            document.getElementById('authStep2').classList.add('hidden');
+            document.getElementById('authStep1').classList.remove('hidden');
+        }
+
+        function verifyOtp() {
+            alert('Successfully verified! Welcome to SolarClean Jaipur.');
+            document.getElementById('authNavText').innerText = 'Vishesh (Jaipur)';
+            closeAuthModal();
+        }
+
+        // Booking Modal Controls
+        let selectedPackageName = '';
+        let selectedPackagePrice = 0;
+
+        function openBookingModal(name, price) {
+            selectedPackageName = name;
+            selectedPackagePrice = price;
+            document.getElementById('bookingTitle').innerText = name;
+            document.getElementById('bookingPrice').innerText = 'Price: ₹' + price + ' (Inclusive of all taxes)';
+            
+            document.getElementById('bookingModal').classList.remove('hidden');
+            document.getElementById('bookingModal').classList.add('flex');
+        }
+
+        function closeBookingModal() {
+            document.getElementById('bookingModal').classList.remove('flex');
+            document.getElementById('bookingModal').classList.add('hidden');
+        }
+
+        function confirmBooking() {
+            const name = document.getElementById('bookName').value;
+            const phone = document.getElementById('bookPhone').value;
+            const pincode = document.getElementById('bookPincode').value;
+            const address = document.getElementById('bookAddress').value;
+
+            if(!name || !phone || !pincode || !address) {
+                alert('Please fill in all booking details including your Jaipur address.');
+                return;
+            }
+
+            alert('Booking confirmed successfully for ' + name + '! Our Jaipur service lead will call you on ' + phone + ' 30 minutes prior to arrival.');
+            closeBookingModal();
+        }
+
+        // Check Pincode Modal
+        function openCheckPinModal() {
+            document.getElementById('pincodeModal').classList.remove('hidden');
+            document.getElementById('pincodeModal').classList.add('flex');
+        }
+        function closeCheckPinModal() {
+            document.getElementById('pincodeModal').classList.remove('flex');
+            document.getElementById('pincodeModal').classList.add('hidden');
+        }
+        function verifyModalPincode() {
+            const pin = document.getElementById('modalPincodeInput').value.trim();
+            const res = document.getElementById('modalPincodeResult');
+            if(pin.length !== 6) {
+                res.innerHTML = '<span class="text-red-500">Enter valid 6 digits</span>';
+                return;
+            }
+            res.innerHTML = '<span class="text-emerald-600 font-bold">✓ Service Available across Jaipur (' + pin + ')</span>';
+        }
+    </script>
+</body>
+</html>
